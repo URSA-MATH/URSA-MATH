@@ -24,7 +24,7 @@
 </div>
 
 ## 📣 Updates
-- **[2025.01.22]**: [URSA-8B](https://huggingface.co/URSA-MATH/URSA-8B) and [URSA-RM-8B](https://huggingface.co/URSA-MATH/URSA-RM-8B) have been released, along with open-sourced inference code powered by vLLM!
+- **[2025.01.22]**: [URSA-8B](https://huggingface.co/URSA-MATH/URSA-8B) and [URSA-RM-8B](https://huggingface.co/URSA-MATH/URSA-RM-8B) have been released, along with open-sourced inference code powered by [vLLM](https://github.com/vllm-project/vllm)!
 
 - **[2025.01.08]**: Our paper is released on Arxiv [Paper](https://arxiv.org/abs/2501.04686). And training data is open-sourced on Huggingface [Dataset](https://huggingface.co/URSA-MATH)!
 ---
@@ -97,7 +97,7 @@ We continue training the reward model based on URSA-8B, aiming to transform CoT 
 
 Please refer to our paper to see the specific performance on these benchmarks!
 
-Please note that our results are based on the evaluation criteria of each respective benchmark, and we are also submitting a PR to the VLMEvalKit. Therefore, there may be differences in the results on the Opencampass leaderboard in the future.
+Please note that our results are based on the evaluation criteria of each respective benchmark, and we are also submitting a PR to the [VLMEvalKit](https://github.com/open-compass/VLMEvalKit). Therefore, there may be differences in the results on the [OpenCampass](https://opencompass.org.cn/home) leaderboard in the future.
 
 ---
 
