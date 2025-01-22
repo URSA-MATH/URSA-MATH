@@ -24,19 +24,20 @@
 </div>
 
 ## 📣 Updates
+- **[2025.01.22]**: [URSA-8B](https://huggingface.co/URSA-MATH/URSA-8B) and [URSA-RM-8B](https://huggingface.co/URSA-MATH/URSA-RM-8B) have been released, along with open-sourced inference code powered by vLLM!
 
 - **[2025.01.08]**: Our paper is released on Arxiv [Paper](https://arxiv.org/abs/2501.04686). And training data is open-sourced on Huggingface [Dataset](https://huggingface.co/URSA-MATH)!
 ---
 
 ## 🔥 Highlights
 
-**URSA-7B** is the first small-sized MLLM specifically focused on CoT multimodal mathematical reasoning.
+**URSA-8B** is the first small-sized MLLM specifically focused on Chain-of-thought multimodal mathematical reasoning.
 
-**URSA-RM-7B** is the first open-source, small-sized model that operates in multimodal mathematical supervision.
+**URSA-RM-8B** is the first open-source, small-sized reward model that operates in multimodal mathematics.
 
-- We conduct extensive evaluations on **six** mathematical benchmarks (MathVista, MathVerse, Dynamath, GeoQA, Math-Vision and We-Math). URSA-7B outperforms similarly sized general and math MLLMs such as **Qwen2-VL**, **InternVL-8B**, and **InfiMM-Math**, as well as closed-source models like **GPT-4V**, **Gemini-1.5-002-Flash**, and **Gemini1.5-Pro**.
+- We conduct extensive evaluations on **six** mathematical benchmarks (MathVista, MathVerse, Dynamath, GeoQA, Math-Vision and We-Math). URSA-8B outperforms similarly sized general and math MLLMs such as **Qwen2-VL**, **InternVL-8B**, and **InfiMM-Math**, as well as closed-source models like **GPT-4V**, **Gemini-1.5-002-Flash**, and **Gemini1.5-Pro**.
 
-- When conducting system-2 reasoning with the verification of URSA-RM-7B, URSA-7B is able to surpass state-of-the-art MLLMs such as **GPT-4o** on datasets like MathVision and MathVerse! **(55.0 vs. 50.8, 35.2 vs. 30.4)**
+- When conducting system-2 reasoning with the verification of URSA-RM-8B, URSA-8B is able to surpass state-of-the-art MLLMs such as **GPT-4o** on datasets like MathVision and MathVerse! **(55.0 vs. 50.8, 35.2 vs. 30.4)**
 
 ---
 
@@ -60,7 +61,7 @@ We design the CoT reasoning data synthesis through a triple strategy of distilla
 
 **System2 reasoning-like Scaling**
 
-We continue training the reward model based on URSA-7B, aiming to transform CoT reasoning capabilities into supervised capabilities. We design a Dual-view process supervision data synthesis, including binary error localization and visual misinterpretation insertion, to construct data that focuses on both logical and visual perspectives. It results in [DualMath-1.1M](https://huggingface.co/datasets/URSA-MATH/DualMath-1.1M).
+We continue training the reward model based on URSA-8B, aiming to transform CoT reasoning capabilities into supervised capabilities. We design a Dual-view process supervision data synthesis, including binary error localization and visual misinterpretation insertion, to construct data that focuses on both logical and visual perspectives. It results in [DualMath-1.1M](https://huggingface.co/datasets/URSA-MATH/DualMath-1.1M).
 
 <div align=center>
 <img src="figures/dualview.png" width="600px">
@@ -70,7 +71,7 @@ We continue training the reward model based on URSA-7B, aiming to transform CoT 
 
 ## 🏆 Leaderboards
 
-**Table 1:** Comparison of major MLLMs on six widely-used multimodal mathematical benchmarks. For WE-MATH, we employ **strict metrics**. For DYNAMATH, we report **average accuracy**. For Math-Vision, we use full set for comprehensive evaluation. The notation **URSA-7B + URSA-RM-7B** indicates that URSA-7B is used as a 32-time reasoning trajectory sampler, and URSA-RM-7B is utilized to select the final answer.
+**Table 1:** Comparison of major MLLMs on six widely-used multimodal mathematical benchmarks. For WE-MATH, we employ **strict metrics**. For DYNAMATH, we report **average accuracy**. For Math-Vision, we use full set for comprehensive evaluation. The notation **URSA-8B + URSA-RM-8B** indicates that URSA-8B is used as a 32-time reasoning trajectory sampler, and URSA-RM-8B is utilized to select the final answer.
 
 <div align="center">
 
@@ -87,10 +88,10 @@ We continue training the reward model based on URSA-7B, aiming to transform CoT 
 | InternVL2.5-8B              | 39.5      | 64.9          | -        | -        | 19.7        | -        |
 | InternVL2.5-26B             | 40.1      | 68.8          | -        | -        | 23.1        | -        |
 | Math-LLaVA-13B              | 22.9      | 57.7          | 11.1     | -        | 15.7        | -        |
-| Multimath-7B                | 27.7      | 66.8          | -        | -        | 16.3        | 67.7     |
+| Multimath                | 27.7      | 66.8          | -        | -        | 16.3        | 67.7     |
 | Math-PUMA-Qwen2-7B          | 33.6      | 48.1          | 19.2     | -        | 14.0        | 63.6     |
-| URSA-7B (Ours)              | 45.7      | 79.3          | 32.2     | 44.7     | 26.2        | **73.5** |
-| URSA-7B + URSA-RM-7B (Ours) | **55.0**  | **86.4**      | -        | -        | **35.2**    | -        |
+| URSA-8B (Ours)              | 45.7      | 79.3          | 32.2     | 44.7     | 26.2        | **73.5** |
+| URSA-8B + URSA-RM-8B (Ours) | **55.0**  | **86.4**      | -        | -        | **35.2**    | -        |
 
 </div>
 
@@ -109,7 +110,7 @@ The total training datasets are available on Huggingface: [URSA-MATH](https://hu
 
 ### Inference
 
-We have adapted the URSA-7B architecture into the vllm project, so you can enjoy faster inference using vllm!
+We have adapted the URSA-8B architecture into the vllm project, so you can enjoy faster inference using vllm!
 
 Step 1: Configure vllm.
 
@@ -127,7 +128,7 @@ GENERATE_NUM=1
 
 OUTPUT_FILE="./mathvista_$GENERATE_NUM.jsonl"
 DATA_PATH="./data/mathvista/mathvista_testmini.jsonl"
-MODEL_PATH="./URSA-7B"
+MODEL_PATH="./URSA-8B"
 
 echo "Running inference on data_path: $DATA_PATH"
 echo "Save output at $OUTPUT_FILE"
