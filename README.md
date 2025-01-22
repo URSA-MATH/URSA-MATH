@@ -96,6 +96,8 @@ We continue training the reward model based on URSA-7B, aiming to transform CoT 
 
 Please refer to our paper to see the specific performance on these benchmarks!
 
+Please note that our results are based on the evaluation criteria of each respective benchmark, and we are also submitting a PR to the VLMEvalKit. Therefore, there may be differences in the results on the Opencampass leaderboard in the future.
+
 ---
 
 ## 🔨 Usage
