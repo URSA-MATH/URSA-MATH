@@ -24,10 +24,7 @@ from tqdm import tqdm
 from loguru import logger
 import pandas as pd
 from typing import List, Dict, Union
-from models.ursa import (
-    UrsaProcessor,
-    UrsaForTokenClassification
-)
+from models.ursa_model import UrsaProcessor, UrsaForTokenClassification
 
 PROMPT = 'You are given a problem and a step-by-step solution. You need to check the correctness of each step.\nQuestion:'
 

@@ -1,70 +1,61 @@
+# Copyright (2025) Bytedance Ltd. and/or its affiliates 
+# Licensed under the Apache License, Version 2.0 (the "License"); 
+# you may not use this file except in compliance with the License. 
+# You may obtain a copy of the License at 
+
+#     http://www.apache.org/licenses/LICENSE-2.0 
+
+# Unless required by applicable law or agreed to in writing, software 
+# distributed under the License is distributed on an "AS IS" BASIS, 
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+# See the License for the specific language governing permissions and 
+# limitations under the License. 
+
+import sys
+
+if sys.version_info >= (3, 10):
+    print("Python version is above 3.10, patching the collections module.")
+    import collections
+    import collections.abc
+
+    for type_name in collections.abc.__all__:
+        setattr(collections, type_name, getattr(collections.abc, type_name))
+
 from transformers.configuration_utils import PretrainedConfig
 from transformers.utils import logging
 from transformers import CONFIG_MAPPING
-from models.deepseek_vl.models import VisionConfig, AlignerConfig
-
+from attrdict import AttrDict
 logger = logging.get_logger(__name__)
 
 
-class Qwen2vlmConfig(PretrainedConfig):
-    model_type = "qwen2vlm"
-    is_composition = False
+class VisionConfig(PretrainedConfig):
+    model_type = "vision"
+    cls: str = ""
+    params: AttrDict = {}
 
-    def __init__(
-        self,
-        vision_config=None,
-        text_config=None,
-        ignore_index=-100,
-        image_token_index=32000,
-        projector_hidden_act="gelu",
-        vision_feature_select_strategy="default",
-        vision_feature_layer=-2,
-        **kwargs,
-    ):
-        self.ignore_index = ignore_index
-        self.image_token_index = image_token_index
-        self.projector_hidden_act = projector_hidden_act
-
-        if vision_feature_select_strategy not in ["default", "full"]:
-            raise ValueError(
-                "vision_feature_select_strategy should be one of 'default', 'full'."
-                f"Got: {vision_feature_select_strategy}"
-            )
-
-        self.vision_feature_select_strategy = vision_feature_select_strategy
-        self.vision_feature_layer = vision_feature_layer
-
-        if isinstance(vision_config, dict):
-            vision_config["model_type"] = (
-                vision_config["model_type"] if "model_type" in vision_config else "siglip_vision_model"
-            )
-            vision_config = CONFIG_MAPPING[vision_config["model_type"]](**vision_config)
-        elif vision_config is None:
-            vision_config = CONFIG_MAPPING["siglip_vision_model"](
-                intermediate_size=3072,
-                hidden_size=768,
-                patch_size=16,
-                image_size=224,
-                num_hidden_layers=12,
-                num_attention_heads=12,
-                vocab_size=32000,
-                projection_dim=768,
-            )
-
-        self.vision_config = vision_config
-
-        if isinstance(text_config, dict):
-            text_config["model_type"] = text_config["model_type"] if "model_type" in text_config else "llama"
-            text_config = CONFIG_MAPPING[text_config["model_type"]](**text_config)
-        elif text_config is None:
-            text_config = CONFIG_MAPPING["llama"]()
-
-        self.text_config = text_config
-
+    def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
+        self.cls = kwargs.get("cls", "")
+        if not isinstance(self.cls, str):
+            self.cls = self.cls.__name__
+
+        self.params = AttrDict(kwargs.get("params", {}))
 
 
+class AlignerConfig(PretrainedConfig):
+    model_type = "aligner"
+    cls: str = ""
+    params: AttrDict = {}
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+        self.cls = kwargs.get("cls", "")
+        if not isinstance(self.cls, str):
+            self.cls = self.cls.__name__
+
+        self.params = AttrDict(kwargs.get("params", {}))
 
 class UrsaConfig(PretrainedConfig):
     model_type = "ursa"
