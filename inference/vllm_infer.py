@@ -168,7 +168,7 @@ def prepare_data(dataset: str, data_path: str, image_root: str) -> Tuple[List[Di
         ]
     return input_data, origin
 
-def run_deepseek_vl(
+def run_infer(
     model: str,
     dataset: str,
     data_path: str,
@@ -202,4 +202,4 @@ def run_deepseek_vl(
 
 
 if __name__ == "__main__":
-    fire.Fire(run_deepseek_vl)
+    fire.Fire(run_infer)
