@@ -37,7 +37,7 @@
 
 **URSA-RM-8B** is the first open-source, small-sized reward model that operates in multimodal mathematics.
 
-- We conduct extensive evaluations on **six** mathematical benchmarks (MathVista, MathVerse, Dynamath, GeoQA, Math-Vision and We-Math). URSA-8B outperforms similarly sized general and math MLLMs such as **Qwen2-VL**, **InternVL-8B**, and **InfiMM-Math**, as well as closed-source models like **GPT-4V**, **Gemini-1.5-002-Flash**, and **Gemini1.5-Pro**.
+- We conduct extensive evaluations on **six** mathematical benchmarks (MathVista, MathVerse, Dynamath, GeoQA, Math-Vision and We-Math). URSA-8B outperforms similarly sized general and math MLLMs such as **Qwen2-VL**, **InternVL2.5-8B**, and **InfiMM-Math**, as well as closed-source models like **GPT-4V**, **Gemini-1.5-002-Flash**, and **Gemini1.5-Pro**.
 
 - When conducting system-2 reasoning with the verification of URSA-RM-8B, URSA-8B is able to surpass state-of-the-art MLLMs such as **GPT-4o** on datasets like MathVision and MathVerse! **(55.0 vs. 50.8, 35.2 vs. 30.4)**
 
