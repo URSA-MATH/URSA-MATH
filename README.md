@@ -24,7 +24,8 @@
 </div>
 
 ## 📣 Updates
-- **[2025.01.27]**: URSA-8B has taken the lead in the 4-10B size MLLMs on the [Opencampass LMM Reasoning Leaderboard](https://rank.opencompass.org.cn/leaderboard-multimodal-reasoning/?m=REALTIME), contributing to the SOTA on Math-Vision.
+
+- **[2025.01.27]**: URSA-8B has taken the lead in the 4-10B size MLLMs on the [Opencampass LMM Reasoning Leaderboard](https://rank.opencompass.org.cn/leaderboard-multimodal-reasoning/?m=REALTIME), contributing to the SOTA on Math-Vision. Evaluation of URSA has been supported by [VLMEvalKit](https://github.com/open-compass/VLMEvalKit).
 
 - **[2025.01.22]**: [URSA-8B](https://huggingface.co/URSA-MATH/URSA-8B) and [URSA-RM-8B](https://huggingface.co/URSA-MATH/URSA-RM-8B) have been released, along with open-sourced inference code powered by [vLLM](https://github.com/vllm-project/vllm)!
 
@@ -98,8 +99,6 @@ We continue training the reward model based on URSA-8B, aiming to transform CoT 
 </div>
 
 Please refer to our paper to see the specific performance on these benchmarks!
-
-Please note that our results are based on the evaluation criteria of each respective benchmark, and we are also submitting a PR to the [VLMEvalKit](https://github.com/open-compass/VLMEvalKit). Therefore, there may be differences in the results on the [OpenCampass](https://opencompass.org.cn/home) leaderboard in the future.
 
 ---
 
