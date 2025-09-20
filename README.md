@@ -24,7 +24,8 @@
 </div>
 
 ## 📣 Updates
-
+- **[2025.01.27]**: 🎉🎉🎉 URSA has been accepted to NeurIPS 2025 Main Track. See you in San Diego!
+ 
 - **[2025.01.27]**: URSA-8B has taken the lead in the 4-10B size MLLMs on the [Opencampass LMM Reasoning Leaderboard](https://rank.opencompass.org.cn/leaderboard-multimodal-reasoning/?m=REALTIME), contributing to the SOTA on Math-Vision. Evaluation of URSA has been supported by [VLMEvalKit](https://github.com/open-compass/VLMEvalKit).
 
 - **[2025.01.22]**: [URSA-8B](https://huggingface.co/URSA-MATH/URSA-8B) and [URSA-RM-8B](https://huggingface.co/URSA-MATH/URSA-RM-8B) have been released, along with open-sourced inference code powered by [vLLM](https://github.com/vllm-project/vllm)!
